@@ -1,69 +1,46 @@
-// Commentaar
+let startTijd;
+let eindTijd;
 
-const actieButton = document.getElementById("button");
-actieButton.addEventListener('click', actions);
+const tijdButton = document.getElementById('tijdButton');
+const verlopenTijdH1 = document.getElementById('verlopenTijd');
 
-const verstrekenTijd = document.getElementById('verstrekentijd');
-const timeList = document.getElementById('list');
+const list = document.getElementById('vorigTijdLijst');
 
-var startTime;
-var stopTime;
-let myTime = [];
+function startTellen() {
+    startTijd = new Date();
+    veranderButtonStart();
+}
+function stopTellen() {
+    eindTijd = new Date();
+    let timeDiff = eindTijd - startTijd;
+    timeDiff /= 1000;
 
-//
-function statusButtons() {
-    if (actieButton.getAttribute('value') === 'start') {
-        actieButton.setAttribute('value', 'stop');
-        actieButton.innerText = 'stop';
-    } else {
-        actieButton.setAttribute('value', 'start');
-        actieButton.innerText = 'start';
-    }
+    let seconds = Math.round(timeDiff);
+    verlopenTijdH1.innerHTML = seconds + ' seconds.';
+
+    veranderButtonStop();
+    maakLijst(startTijd, eindTijd, seconds);
 }
 
-//
-function storeTime(tijd) {
-    if (actieButton.getAttribute('value') === 'start') {
-        startTime = tijd;
-    } else {
-        stopTime = tijd;
-    }
+function veranderButtonStart() {
+    tijdButton.style.backgroundColor = "red";
+    tijdButton.style.Color = "black";
+    tijdButton.innerHTML = "STOP";
+    tijdButton.setAttribute('onclick', 'stopTellen()');
 }
 
-//
-function actions() {
-    var tijd =  Date.now();
 
-    storeTime(tijd);
-    if (actieButton.getAttribute('value') === 'stop') {
-        let verschil = calculateTime(startTime, stopTime);
-
-        addTimeToList(verschil);
-        showCalculatedTime(verschil);
-        showTimeList();
-
-    }
-    statusButtons();
+function veranderButtonStop() {
+  tijdButton.style.backgroundColor = "green";
+  tijdButton.style.Color = "white";
+  tijdButton.innerHTML = "START";
+  tijdButton.setAttribute('onclick', 'startTellen()');
 }
 
-// Deze functie doet:
-function calculateTime(start, stop) {
-    var verschil = stop - start;
-    return verschil;
-}
+function maakLijst(startingDate, endingDate, timePassed){
+    const listItem = document.createElement('li');
+    listItem.className = 'listItem';
+    listItem.innerHTML = 'Start geklikt om: ' + startingDate + '. <br><br> Stop geklikt om: ' + endingDate +'. <br><br>' + 'Verstreken tijd is: ' + timePassed + '.';
+    list.prepend(listItem);
 
-//
-function showCalculatedTime(tijd) {
-    verstrekenTijd.innerText = `Verstreken tijd: ${tijd}`;
-}
-
-//
-function addTimeToList(item) {
-    myTime.push(item);
-}
-
-//
-function showTimeList() {
-    // Zet deze functie om zodat de lijst getoond wordt op het scherm
-    console.table(myTime);
 }
