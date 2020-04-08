@@ -12,13 +12,20 @@ function Opdracht(vak, beschrijving) {
 // functie is aangemaakt.
 
 // Cijfer een nummer van 0 tot 10
-let cijfer = Math.floor(Math.random() * 11);
 
 function Cijfer(opdracht, cijfer) {
     let cijferObj = this;
 
     cijferObj.opdracht = opdracht;
-    cijferObj.cijfer = cijfer;
+    (cijfer <= 10 && cijfer >= 0)
+    ? cijferObj.cijfer = cijfer
+    : cijferObj.cijfer = 0;
+
+    // if (cijfer <= 10 && cijfer >=0) {
+    //     cijferObj.cijfer = cijfer;
+    // } else {
+    //     cijferObj.cijfer = 0;
+    // }
 }
 
 // OPDRACHT 2.
@@ -27,21 +34,27 @@ function Cijfer(opdracht, cijfer) {
 // Totaal dus 9 opdrachten
 // Kijk in week6 of studie.js hoe je een variabele aanmaakt met het keyword new
 
-let opdrachtCMS = new Opdracht('CMS', 'Opdracht 1');
-let opdrachtCMS = new Opdracht('CMS', 'Opdracht 2');
-let opdrachtCMS = new Opdracht('CMS', 'Opdracht 3');
-let opdrachtBAP = new Opdracht('BAP', 'Opdracht 1');
-let opdrachtBAP = new Opdracht('BAP', 'Opdracht 2');
-let opdrachtBAP = new Opdracht('BAP', 'Opdracht 3');
-let opdrachtFRO = new Opdracht('FRO', 'Opdracht 1');
-let opdrachtFRO = new Opdracht('FRO', 'Opdracht 2');
-let opdrachtFRO = new Opdracht('FRO', 'Opdracht 3');
+let opdracht1 = new Opdracht('CMS', 'Opdracht 1');
+let opdracht2 = new Opdracht('CMS', 'Opdracht 2');
+let opdracht3 = new Opdracht('CMS', 'Opdracht 3');
+let opdracht4 = new Opdracht('BAP', 'Opdracht 1');
+let opdracht5 = new Opdracht('BAP', 'Opdracht 2');
+let opdracht6 = new Opdracht('BAP', 'Opdracht 3');
+let opdracht7 = new Opdracht('FRO', 'Opdracht 1');
+let opdracht8 = new Opdracht('FRO', 'Opdracht 2');
+let opdracht9 = new Opdracht('FRO', 'Opdracht 3');
 
-console.log(opdrachtFRO);
+console.log(opdracht1);
 
-opdrachtCMS.cijfer('7');
-opdrachtBAP.cijfer('8');
-opdrachtFRO.cijfer('6');
+let cijfer1 = new Cijfer(opdracht1, 10);
+let cijfer2 = new Cijfer(opdracht2, 6);
+let cijfer3 = new Cijfer(opdracht3, 7);
+let cijfer4 = new Cijfer(opdracht4, 7);
+let cijfer5 = new Cijfer(opdracht5, 2);
+let cijfer6 = new Cijfer(opdracht6, 6);
+let cijfer7 = new Cijfer(opdracht7, 5);
+let cijfer8 = new Cijfer(opdracht8, 7);
+let cijfer9 = new Cijfer(opdracht9, 6);
 
 // Maak voor al deze opdrachten een cijfer variabele aan
 // Kijk in week6 of studie.js hoe je een variabele aanmaakt met het keyword new
@@ -49,14 +62,26 @@ opdrachtFRO.cijfer('6');
 // OPDRACHT 3.
 // Vul de arrays met de opdrachten en cijfers die je hebt aangemaakt.
 // Kijk in week6 voor een voorbeeld hoe je objecten in een array stopt!
-let opdrachten = [
-    opdrachtCMS.push(new Opdracht('CMS', 'Opdracht 1', 'Opdracht 2', 'Opdracht 3')),
-    opdrachtBAP.push(new Opdracht('BAP', 'Opdracht 1', 'Opdracht 2', 'Opdracht 3')),
-    opdrachtFRO.push(new Opdracht('FRO', 'Opdracht 1', 'Opdracht 2', 'Opdracht 3'))
-];
+let opdrachten = [];
+
+console.log(opdrachten);
+
+function opdrachtInArray() {
+    opdrachten.push(new Opdracht('CMS', 'Opdracht 1')),
+    opdrachten.push(new Opdracht('CMS', 'Opdracht 2')),
+    opdrachten.push(new Opdracht('CMS', 'Opdracht 3')),
+    opdrachten.push(new Opdracht('BAP', 'Opdracht 1')),
+    opdrachten.push(new Opdracht('BAP', 'Opdracht 2')),
+    opdrachten.push(new Opdracht('BAP', 'Opdracht 3')),
+    opdrachten.push(new Opdracht('FRO', 'Opdracht 1')),
+    opdrachten.push(new Opdracht('FRO', 'Opdracht 2')),
+    opdrachten.push(new Opdracht('FRO', 'Opdracht 3'))
+};
+
+opdrachtInArray();
 
 let cijfers = [
-    opdrachtCMS.pust(cijfer('7')),
+    // opdrachtCMS.pust(cijfer('7')),
 ];
 
 function Periode(opdrachten, cijfers) {
