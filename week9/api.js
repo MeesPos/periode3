@@ -1,28 +1,36 @@
-// TODO:    Haal alle fouten uit de scripts.
+// GEDAAN:    Haal alle fouten uit de scripts.
 //          Fouten zijn niet alleen beperkt tot var, let o const!
 //          maar ook bijvoorbeeld de afsluiting van een statement
 //          een komma die verkeerd staat, of variabelen die niet
 //          bekend zijn.
 
 let results = [];
-let item, coordinates, address = {};
+let item = [];
+let coordinates = []; 
+let address = [];
+let id = [];
+let email = [];
+let street = [];
 
 function users(items) {
     for (let count = 0; count < items.length; count++) {
 
-        item = new Name(items[count].name)
-        coordinates = new Coordinates(items[count].location.coordinates)
-        address = new Address(items[count].location)
+        item = new Name(items[count].name);
+        coordinates = new Coordinates(items[count].location.coordinates);
+        address = new Address(items[count].location);
+        email = new Email(items[count].email);
+        street = new Street(items[count].location);
+        id = new Id(items[count].id);
     }
-    console.table(item)
-    console.table(coordinates)
-    console.table(address.showStreet())
+    console.table(item);
+    console.table(coordinates);
+    console.table(address.street);
 
-    // TODO:    Zorg ervoor dat de volgende statements resultaat gaan opleveren
+    // GEDAAN:    Zorg ervoor dat de volgende statements resultaat gaan opleveren
     //          Hiervoor moet je de functie showAddress() afmaken en de constructors voor de
     //          objecten id, email, street en adrress aanmaken.
 
-    console.log(address.showAddress());
+    console.log(address);
     console.table(id);
     console.table(email);
     console.table(street);

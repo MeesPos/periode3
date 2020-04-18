@@ -16,6 +16,21 @@
 // picture
 // nat
 
+function Street(item) {
+    streetObj = this;
+    streetObj.street = item.street;
+}
+
+ function Id(item) {
+    idObj = this;
+    idObj.id = item;
+ }
+
+function Email(item) {
+    emailObj = this;
+    emailObj.email = item;
+}
+
 function Name(item) {
     nameObj = this;
     nameObj.title = item.title;
@@ -32,8 +47,12 @@ function Coordinates(item) {
 function Address(item) {
     addressObj = this;
     addressObj.street = item.street;
+    addressObj.city = item.city;
+    addressObj.state = item.state;
+    addressObj.country = item.country;
+    addressObj.postcode = item.postcode;
 
-    // TODO:    maak de constructor voor address af,
+    // GEDAAN:    maak de constructor voor address af,
     //          het object bevat meerdere objecten.
     //          Het adres bestaat uit de onderdelen
     //          street, city, state, country, postcode
@@ -41,14 +60,23 @@ function Address(item) {
     addressObj.showStreet = function() {
         console.log(
             addressObj.street.name,
-            addressObj.street.number);
+            addressObj.street.number
+        );
     };
 
     addressObj.showAddress = function() {
-        // TODO:    Maak de functie af zodat alle informatie
-        //          van het adres getoond wordt. Dus street
-        //          city, state, country, postcode
-    }
+        console.log(
+            addressObj.city,
+            addressObj.state,
+            addressObj.country,
+            addressObj.postcode
+        );
+    };
+}
+
+function Email(item) {
+    let emailObject = this;
+    emailObject.email = item;
 }
 
 // TODO:    Maak de ontbrekende objecten voor
