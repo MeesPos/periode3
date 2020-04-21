@@ -17,54 +17,47 @@
 // nat
 
 function Street(item) {
-    streetObj = this;
+    let streetObj = this;
     streetObj.street = item.street;
 }
 
- function Id(item) {
-    idObj = this;
+function Id(item) {
+    let idObj = this;
     idObj.id = item;
- }
+}
 
 function Email(item) {
-    emailObj = this;
+    let emailObj = this;
     emailObj.email = item;
 }
 
 function Name(item) {
-    nameObj = this;
+    let nameObj = this;
     nameObj.title = item.title;
     nameObj.first = item.first;
     nameObj.last = item.last;
 }
 
 function Coordinates(item) {
-    locationObject = this;
+    let locationObject = this;
     locationObject.longitude = item.longitude;
     locationObject.latitude = item.latitude;
 }
 
 function Address(item) {
-    addressObj = this;
+    let addressObj = this;
     addressObj.street = item.street;
     addressObj.city = item.city;
     addressObj.state = item.state;
     addressObj.country = item.country;
     addressObj.postcode = item.postcode;
-
-    // GEDAAN:    maak de constructor voor address af,
-    //          het object bevat meerdere objecten.
-    //          Het adres bestaat uit de onderdelen
-    //          street, city, state, country, postcode
-
-    addressObj.showStreet = function() {
+    addressObj.showStreet = function () {
         console.log(
             addressObj.street.name,
             addressObj.street.number
         );
     };
-
-    addressObj.showAddress = function() {
+    addressObj.showAddress = function () {
         console.log(
             addressObj.city,
             addressObj.state,
@@ -74,20 +67,52 @@ function Address(item) {
     };
 }
 
-function Email(item) {
-    let emailObject = this;
-    emailObject.email = item;
+function Login(item) {
+    let loginObj = this;
+    loginObj.uuid = item.uuid;
+    loginObj.username = item.username;
+    loginObj.password = item.password;
+    loginObj.salt = item.salt;
+    loginObj.md5 = item.md5;
+    loginObj.sha1 = item.sha1;
+    loginObj.sha256 = item.sha256;
 }
 
-// TODO:    Maak de ontbrekende objecten voor
-//          gender
-//          location
-//          email
-//          login
-//          dob
-//          registered
-//          phone
-//          cell
-//          id
-//          picture
-//          nat
+function Dob(item) {
+    let dobObj = this;
+    dobObj.date = item.date;
+    dobObj.age = item.age;
+}
+
+function Registered(item) {
+    let registeredObj = this;
+    registeredObj.date = item.date;
+    registeredObj.age = item.age;
+}
+
+function Phone(item) {
+    let phoneObj = this;
+    phoneObj.phone = item;
+}
+
+function Cell(item) {
+    let cellObj = this;
+    cellObj.cell = item;
+}
+
+function Picture(item) {
+    let pictureObj = this;
+    pictureObj.large = item.large;
+    pictureObj.medium = item.medium;
+    pictureObj.thumbnail = item.thumbnail;
+}
+
+function Nat(item) {
+    let natObj = this;
+    natObj.nat = item;
+}
+
+function Gender(item) {
+    let genderObj = this;
+    genderObj.gender = item;
+}
